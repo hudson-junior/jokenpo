@@ -86,3 +86,11 @@ p {
   cursor: pointer;
   transition: opacity 0.5s ease-in-out;
 }
+
+@media (max-width: 900px) {
+  .button {
+  padding: 10px;
+  font-size: 40px;
+  margin: 0 10px;
+  }
+}
