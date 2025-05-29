@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <title>My JoKenPô</title>
+</head>
+<body>
+
+  <section class="container">
+    <h1>JoKenPô</h1>
+
+    <div>
+      <button class="button" id="pedra" onclick="playHuman('pedra')">&#x270A;</button>
+      <button class="button" id="papel" onclick="playHuman('papel')">&#x1F590;</button>
+      <button class="button" id="tesoura" onclick="playHuman('tesoura')">&#x270C;</button>
+    </div>
+    <p class="result"></p>
+    <p class="your-score">
+      Sua pontuação: <span id="human-score">0</span>
+    </p>
+    <p class="machine-score">
+      Pontuação da máquina: <span id="machine-score">0</span>
+    </p>
+    <p class="choices">
+      Placar zerado. Clique na sua escolha para jogar.
+    </p>
+    <button class="reset" onclick="resetScore()">Reset</button>
+
+  </section>
+
+
+
+</body>
+<script src="scripts.js"></script>
+</html>
