@@ -19,7 +19,8 @@ h1 {
 }
 
 .container {
-  min-width: 40%;
+  min-width: 40vh;
+  max-width: 70vh;
   background-color: #CFCB97;
   padding: 20px;
   border-radius: 20px;
@@ -89,8 +90,8 @@ p {
 
 @media (max-width: 900px) {
   .button {
-  padding: 10px;
-  font-size: 40px;
-  margin: 0 10px;
+    padding: 10px;
+    font-size: 30px;
+    margin: 0 10px;
   }
 }
