@@ -9,6 +9,12 @@ const GAME_OPTIONS = {
   SCISSORS: 'tesoura'
 };
 
+const GAME_EMOJIS = {
+  pedra: "✊",
+  papel: "🖐️",
+  tesoura: "✌️"
+};
+
 let totalScoreMachine = 0;
 let totalScoreHuman = 0;
 
@@ -34,25 +40,48 @@ const machinePlay = () => {
 };
 
 const playGame = (human, machine) => {
-  if (human === machine) {
-    result.innerHTML = `Empate!`;
-    choices.innerHTML = `Você jogou ${human} e a máquina jogou ${machine}.`;
-    result.style.color = "#787000";
-  } else if (
-    (human === GAME_OPTIONS.ROCK && machine === GAME_OPTIONS.SCISSORS) ||
-    (human === GAME_OPTIONS.PAPER && machine === GAME_OPTIONS.ROCK) ||
-    (human === GAME_OPTIONS.SCISSORS && machine === GAME_OPTIONS.PAPER)
-  ) {
-    totalScoreHuman++;
-    result.innerHTML = `Você ganhou, PARABÉNS!`;
-    choices.innerHTML = `Você jogou ${human} e a máquina jogou ${machine}.`;
-    humanScore.innerHTML = totalScoreHuman;
-    result.style.color = "#00782A";
-  } else {
-    totalScoreMachine++;
-    result.innerHTML = `Você perdeu!`;
-    choices.innerHTML = `Você jogou ${human} e a máquina jogou ${machine}.`;
-    machineScore.innerHTML = totalScoreMachine;
-    result.style.color = "#780000";
-  }
-}
+  // Mostra carregamento
+  result.classList.remove("show");
+  result.innerHTML = "";
+  choices.innerHTML = "";
+  document.getElementById("loading").style.display = "block";
+
+  // Aguarda 1 segundo antes de mostrar resultado
+  setTimeout(() => {
+    document.getElementById("loading").style.display = "none";
+
+    if (human === machine) {
+      result.innerHTML = `Empate!`;
+      choices.innerHTML = `
+      Você  🧍  x  🤖  Máquina<br>
+      <span class="emoji-duelo">${GAME_EMOJIS[human]} x ${GAME_EMOJIS[machine]}</span>
+      `;
+      result.style.color = "#787000";
+    } else if (
+      (human === GAME_OPTIONS.ROCK && machine === GAME_OPTIONS.SCISSORS) ||
+      (human === GAME_OPTIONS.PAPER && machine === GAME_OPTIONS.ROCK) ||
+      (human === GAME_OPTIONS.SCISSORS && machine === GAME_OPTIONS.PAPER)
+    ) {
+      totalScoreHuman++;
+      result.innerHTML = `Você ganhou, PARABÉNS!`;
+      choices.innerHTML = `
+      Você 🧍 x 🤖 Máquina<br>
+      <span class="emoji-duelo">${GAME_EMOJIS[human]} x ${GAME_EMOJIS[machine]}</span>
+      `;
+      result.style.color = "#00782A";
+      humanScore.innerHTML = totalScoreHuman;
+    } else {
+      totalScoreMachine++;
+      result.innerHTML = `Você perdeu!`;
+      choices.innerHTML = `
+      Você 🧍 x 🤖 Máquina<br>
+      <span class="emoji-duelo">${GAME_EMOJIS[human]} x ${GAME_EMOJIS[machine]}</span>
+      `;
+      result.style.color = "#780000";
+  machineScore.innerHTML = totalScoreMachine;
+    }
+
+    result.classList.add("show"); // ativa animação
+  },
+    1000);
+};

@@ -88,6 +88,30 @@ p {
   transition: opacity 0.5s ease-in-out;
 }
 
+.loading {
+  font-weight: bold;
+  color: #333333;
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.result {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.3s ease-in-out;
+}
+
+.result.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.emoji-duelo {
+  font-size: 36px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
 @media (max-width: 900px) {
   .button {
     padding: 10px;
